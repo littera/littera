@@ -12,6 +12,7 @@
 	],
 	"require": {
 		"php": ">=5.4.0",
+		"cartalyst/sentry": "2.1.*",
 		"laravel/framework": "4.2.*"
 	},
 	"require-dev": {
