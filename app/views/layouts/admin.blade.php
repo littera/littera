@@ -35,7 +35,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Littera</a>
+			<a class="navbar-brand" href="#">Littera <small>{{ Config::get('app.version') }}</small></a>
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav navbar-right">
