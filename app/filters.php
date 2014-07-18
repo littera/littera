@@ -35,13 +35,11 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if ( ! Sentry::check())
+	if (Auth::guest())
 	{
 		if (Request::ajax())
 		{
-			return Response::json([
-				'message'=>'Unauthorized'
-			], 401);
+			return Response::json(['message'=>'Unauthorized'], 401);
 		}
 		else
 		{
@@ -63,13 +61,11 @@ Route::filter('auth', function()
 
 Route::filter('guest', function()
 {
-	if (Sentry::check())
+	if (Auth::check())
 	{
 		if (Request::ajax())
 		{
-			return Response::json([
-				'message' => 'Already authorized'
-			], 403);
+			return Response::json(['message' => 'Already authorized'], 403);
 		}
 		else
 		{

@@ -1,7 +1,6 @@
 <?php
 
-return array(
-
+return [
 	/*
 	|--------------------------------------------------------------------------
 	| Pagination Language Lines
@@ -17,4 +16,4 @@ return array(
 
 	'next'     => 'Next &raquo;',
 
-);
+];

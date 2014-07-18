@@ -12,10 +12,15 @@
 
 	<!-- Bootstrap core CSS -->
 	{{ HTML::style('css/bootstrap.min.css') }}
+
+	<!-- Font Awesome CSS -->
 	{{ HTML::style('css/font-awesome.min.css') }}
 
 	<!-- Custom styles for this template -->
 	{{ HTML::style('css/common.css') }}
+
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	{{ HTML::script('js/ie10-viewport-bug-workaround.js') }}
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -58,11 +63,10 @@
 			Powered by <a href="#">Littera</a>
 		</p>
 	</div>
+</div>
 
-	<!-- Bootstrap core JavaScript
-	================================================== -->
-	<!-- Placed at the end of the document so the pages load faster -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	{{ HTML::script('js/bootstrap.min.js') }}
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+{{ HTML::script('js/bootstrap.min.js') }}
 </body>
 </html>

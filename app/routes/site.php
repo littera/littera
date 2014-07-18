@@ -1,3 +1,3 @@
 <?php
 
-Route::get('/', 'Site\PagesController@getIndex');
+Route::get('/', ['as' => 'page_index', 'uses' => 'Site\PagesController@getIndex']);
