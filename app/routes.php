@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', 'HomeController@getIndex');
+$routes = [
+	'auth',
+	'site',
+	'cms',
+];
 
-Route::group(['prefix' => 'admin'], function()
-{
-	Route::get('/', 'AdminController@getIndex');
-});
+foreach ($routes as $route) {
+	$file = app_path().'/routes/'.$route.'.php';
+	if (file_exists($file)) include $file;
+}

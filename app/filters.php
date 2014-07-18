@@ -35,23 +35,19 @@ App::after(function($request, $response)
 
 Route::filter('auth', function()
 {
-	if (Auth::guest())
+	if ( ! Sentry::check())
 	{
 		if (Request::ajax())
 		{
-			return Response::make('Unauthorized', 401);
+			return Response::json([
+				'message'=>'Unauthorized'
+			], 401);
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::guest('auth/login');
 		}
 	}
-});
-
-
-Route::filter('auth.basic', function()
-{
-	return Auth::basic();
 });
 
 /*
@@ -67,7 +63,19 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Sentry::check())
+	{
+		if (Request::ajax())
+		{
+			return Response::json([
+				'message' => 'Already authorized'
+			], 403);
+		}
+		else
+		{
+			return Redirect::back()->with('danger', 'Already authorized');
+		}
+	}
 });
 
 /*
