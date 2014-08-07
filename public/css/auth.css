@@ -1,40 +1,60 @@
 body {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #eee;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background: #eee url(../img/shattered.png) repeat;
 }
 
 .form-login {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
+	background-color: rgba(255, 255, 255, 0.3);
+	-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 }
-.form-login .form-signin-heading,
+
+.form-login .form-login-heading {
+	margin: 5px 0 20px 0;
+}
+
 .form-login .checkbox {
-  margin-bottom: 10px;
+	font-weight: normal;
+	margin: 5px 0 15px 0;
+	padding-left: 5px;
 }
-.form-login .checkbox {
-  font-weight: normal;
+
+.form-login .form-remind {
+	margin: 5px 0 15px 0;
+	padding-right: 5px;
 }
+
 .form-login .form-control {
-  position: relative;
-  height: auto;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 10px;
-  font-size: 16px;
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
 }
+
 .form-login .form-control:focus {
-  z-index: 2;
+	z-index: 2;
 }
-.form-login input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+
+.form-login input[type="text"] {
+	margin-bottom: -1px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
 }
+
 .form-login input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+	margin-bottom: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.form-login .help-block {
+	margin: 15px 0 0 0;
 }
