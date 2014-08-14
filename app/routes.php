@@ -21,3 +21,6 @@ foreach ($routes as $route) {
 	$file = app_path().'/routes/'.$route.'.php';
 	if (file_exists($file)) include $file;
 }
+
+
+Route::when('*', 'csrf', array('post'));

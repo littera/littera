@@ -7,7 +7,7 @@
 	{{ Form::password('password', ['class' => 'form-control', 'placeholder' => trans('auth/views.input_password'), 'require']) }}
 	<div class="checkbox col-xs-6">
 		<label>
-			<input type="checkbox" value="remember-me"> {{ trans('auth/views.input_remember_me') }}
+			<input type="checkbox" name="remember_me" value="yes"> {{ trans('auth/views.input_remember_me') }}
 		</label>
 	</div>
 	<div class="form-remind col-xs-6 text-right">

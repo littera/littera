@@ -11,7 +11,7 @@ class AuthController extends Controller
 
 	public function postLogin()
 	{
-		//
+		$input = Input::all();
 	}
 
 	public function getLogout()
