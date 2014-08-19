@@ -2,7 +2,7 @@
 
 Route::group(['prefix'=>'auth'], function()
 {
-	Route::get('logout', ['before'=>'auth','uses'=>'AuthController@getLogout']);
+	Route::get('logout', ['as' => 'auth.getLogout', 'before'=>'auth', 'uses'=>'AuthController@getLogout']);
 	Route::group(['before'=>'guest'], function ()
 	{
 		Route::get('login', ['as' => 'auth.getLogin', 'uses' => 'AuthController@getLogin']);

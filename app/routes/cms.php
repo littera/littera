@@ -2,5 +2,5 @@
 
 Route::group(['before' => 'auth', 'prefix' => 'cms'], function()
 {
-	Route::get('/', 'Cms\DashboardController@getIndex');
+	Route::get('/', ['as' => 'cms.Dashboard.getIndex', 'uses' => 'Cms\DashboardController@getIndex']);
 });

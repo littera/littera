@@ -41,7 +41,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">My company</a>
+			<a class="navbar-brand" href="{{ route('page.getIndex') }}">My company</a>
 		</div>
 		<div class="collapse navbar-collapse">
 			@include('partials.menu_left')

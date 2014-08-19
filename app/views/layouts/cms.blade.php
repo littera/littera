@@ -40,12 +40,15 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">Littera <small>{{ Config::get('app.version') }}</small></a>
+			<a class="navbar-brand" href="{{ route('cms.Dashboard.getIndex') }}">Littera <small>{{ Config::get('app.version') }}</small></a>
 		</div>
 		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="{{ route('page.getIndex') }}">Visit site</a></li>
+			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="#">
+					<a href="{{ route('cms.Dashboard.getIndex') }}">
 						<span class="glyphicon glyphicon-dashboard"></span>
 						Dashboard
 					</a>
@@ -56,11 +59,17 @@
 						Settings
 					</a>
 				</li>
-				<li>
-					<a href="#">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<span class="glyphicon glyphicon-user"></span>
-						Profile
+						{{ Auth::user()->username }} <span class="caret"></span>
 					</a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">Change account</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Change password</a></li>
+						<li><a href="{{ route('auth.getLogout') }}">Logout</a></li>
+					</ul>
 				</li>
 				<li>
 					<a href="#">
@@ -94,23 +103,33 @@
 			</ul>
 			<div class="sidebar-footer">
 				<p class="text-muted text-center">
-					&copy; Littera 2014, CMS based on <a href="http://laravel.com/">Laravel framework</a>
-					under <a href="http://opensource.org/licenses/MIT">MIT license</a>.
+					<small>
+						<a href="http://getlittera.com">Littera</a> made with <span class="text-danger">♥</span>
+						by <a href="http://pektop.net">PEKTOP</a>
+						under <a href="http://opensource.org/licenses/MIT">MIT license</a> and
+						powered by <a href="http://laravel.com/">Laravel framework</a>
+					</small>
 				</p>
 			</div>
 		</div>
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<h1 class="page-header">Dashboard</h1>
+			@if (Session::has('success'))
+			<div class="alert alert-success alert-dismissible" role="alert">
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span><span class="sr-only">{{ trans('views.sr_close') }}</span>
+				</button>
+				{{ Session::get('success') }}
+			</div>
+			@endif
 			<p class="lead">CMS based on <a href="http://laravel.com/">Laravel framework</a></p>
 			<h2 class="sub-header">Section title</h2>
-			<p>bla-bla-bla...</p>
 		</div>
 	</div>
 </div>
 
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="../../dist/js/bootstrap.min.js"></script>
 {{ HTML::script('js/bootstrap.min.js') }}
 </body>
 </html>

@@ -1,7 +1,20 @@
 <?php
 
-class AuthController extends Controller
+class AuthController extends BaseController
 {
+	/**
+	 * @var User
+	 */
+	private $user;
+
+	public function __construct(User $user)
+	{
+		$this->user = $user;
+	}
+
+	/**
+	 * @return \Illuminate\View\View
+	 */
 	public function getLogin()
 	{
 		return View::make('auth.login', [
@@ -11,14 +24,37 @@ class AuthController extends Controller
 
 	public function postLogin()
 	{
-		$input = Input::all();
+		list($msg, $data) = $this->validate(Input::all(), $this->user->getRules());
+
+		if ($msg) {
+			return Redirect::route('auth.getLogin')->withErrors($msg);
+		}
+
+		$credentials = [
+			'password' => $data['password'],
+			'active' => 1,
+		];
+
+		if (filter_var($data['login'], FILTER_VALIDATE_EMAIL)) {
+			$credentials['email'] = $data['login'];
+		} else {
+			$credentials['username'] = $data['login'];
+		}
+
+		$remember_me = (isset($data['remember_me']) && $data['remember_me'] == 'true') ? true : false;
+
+		if (Auth::attempt($credentials, $remember_me)) {
+			return Redirect::route('cms.Dashboard.getIndex')->with('success', Lang::get('auth/messages.login.success'));
+		}
+
+		return Redirect::route('auth.getLogin')->with('danger', Lang::get('auth/messages.login.danger'));
 	}
 
 	public function getLogout()
 	{
 		Auth::logout();
 
-		return Redirect::route('page_index');
+		return Redirect::route('page.getIndex')->with('success', Lang::get('auth/messages.logout.success'));
 	}
 
 	public function getRegister()
