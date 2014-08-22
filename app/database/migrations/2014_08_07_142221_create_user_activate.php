@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActivateUsers extends Migration {
+class CreateUserActivate extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateActivateUsers extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('activate_users', function(Blueprint $table)
+		Schema::create('users_activate', function(Blueprint $table)
 		{
 			$table->integer('user_id')->unsigned()->index();
 			$table->string('token')->index();
@@ -27,7 +27,7 @@ class CreateActivateUsers extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('activate_users');
+		Schema::drop('users_activate');
 	}
 
 }
