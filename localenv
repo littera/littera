@@ -1,5 +1,8 @@
 #!/bin/bash
 
+git pull
+composer update
+
 export LITTERA_ENV=local
 
 php artisan debugbar:publish
