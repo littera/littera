@@ -5,7 +5,6 @@ composer update
 
 export LITTERA_ENV=local
 
-php artisan debugbar:publish
 php artisan clear-compiled
 php artisan ide-helper:generate
 php artisan optimize
