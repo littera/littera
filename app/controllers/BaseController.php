@@ -22,7 +22,7 @@ class BaseController extends Controller
 	 */
 	protected function embed($attr, $tag = 'strong')
 	{
-		$result = array();
+		$result = [];
 
 		foreach ($attr as $k => $v) {
 			$result[$k] = "<{$tag}>{$v}</{$tag}>";
@@ -37,13 +37,16 @@ class BaseController extends Controller
 	 * @param array $attr
 	 * @return array|bool
 	 */
-	protected function validate($data, $rules, $attr = array())
+	protected function validate($data, $rules, $attr = [])
 	{
 		// Avoid unnecessary parameters
 		$target_data = array_intersect_key($data, $rules);
 
 		$validator = Validator::make($target_data, $rules);
-		$validator->setAttributeNames($this->embed($attr));
+
+		if ($attr) {
+			$validator->setAttributeNames($this->embed($attr));
+		}
 
 		if ($validator->fails()) {
 			return [$validator->getMessageBag(), $target_data];
