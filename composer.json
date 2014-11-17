@@ -1,6 +1,6 @@
 {
 	"name": "littera/littera",
-	"description": "CMS based on Laravel Framework.",
+	"description": "CMS based on Laravel 4.",
 	"keywords": ["cms", "laravel"],
 	"license": "MIT",
 	"authors": [
@@ -12,12 +12,14 @@
 	],
 	"require": {
 		"php": ">=5.4.0",
-		"laravel/framework": "4.2.*",
-		"intervention/image": "2.*"
+		"laravel/framework": "~4.2.0",
+		"intervention/image": "~2.0",
+		"intervention/imagecache": "~2.0",
+		"doctrine/dbal": "~2.4"
 	},
 	"require-dev": {
-		"barryvdh/laravel-debugbar": "1.*",
-		"barryvdh/laravel-ide-helper": "1.*",
+		"barryvdh/laravel-debugbar": "~1.0",
+		"barryvdh/laravel-ide-helper": "~1.0",
 		"way/generators": "~2.0"
 	},
 	"autoload": {
