@@ -15,8 +15,10 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "laravel/framework": "4.2.*",
-        "intervention/image": "2.*"
+        "laravel/framework": "~4.2",
+        "intervention/image": "~2.0",
+        "intervention/imagecache": "~2.0",
+        "doctrine/dbal": "~2.4"
     },
     "require-dev": {
         "codeception/aspect-mock": "~0.5",
@@ -34,7 +36,7 @@
             "app/database/seeds",
             "app/tests/TestCase.php"
         ],
-        "psr-0": {
+        "psr-4": {
             "Littera": "src/"
         }
     },
