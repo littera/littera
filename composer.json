@@ -1,53 +1,58 @@
 {
-	"name": "littera/littera",
-	"description": "CMS based on Laravel Framework.",
-	"keywords": ["cms", "laravel"],
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Nikoay Denisenko",
-			"email": "mail@pektop.net",
-			"homepage": "http://pektop.net/"
-		}
-	],
-	"require": {
-		"php": ">=5.4.0",
-		"laravel/framework": "4.2.*",
-		"intervention/image": "2.*"
-	},
-	"require-dev": {
-		"barryvdh/laravel-debugbar": "1.*",
-		"barryvdh/laravel-ide-helper": "1.*",
-		"way/generators": "~2.0"
-	},
-	"autoload": {
-		"classmap": [
-			"app/commands",
-			"app/controllers",
-			"app/models",
-			"app/database/migrations",
-			"app/database/seeds",
-			"app/tests/TestCase.php"
-		],
-		"psr-0": {
-			"Littera": "src/"
-		}
-	},
-	"scripts": {
-		"post-install-cmd": [
-			"php artisan clear-compiled",
-			"php artisan optimize"
-		],
-		"post-update-cmd": [
-			"php artisan clear-compiled",
-			"php artisan optimize"
-		],
-		"post-create-project-cmd": [
-			"php artisan key:generate"
-		]
-	},
-	"config": {
-		"preferred-install": "dist"
-	},
-	"minimum-stability": "stable"
+    "name": "littera/littera",
+    "description": "CMS based on Laravel Framework.",
+    "keywords": [
+        "cms",
+        "laravel"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nikoay Denisenko",
+            "email": "mail@pektop.net",
+            "homepage": "http://pektop.net/"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "laravel/framework": "4.2.*",
+        "intervention/image": "2.*"
+    },
+    "require-dev": {
+        "codeception/aspect-mock": "~0.5",
+        "codeception/codeception": "~2.0",
+        "barryvdh/laravel-debugbar": "~1.0",
+        "barryvdh/laravel-ide-helper": "~1.0",
+        "way/generators": "~2.0"
+    },
+    "autoload": {
+        "classmap": [
+            "app/commands",
+            "app/controllers",
+            "app/models",
+            "app/database/migrations",
+            "app/database/seeds",
+            "app/tests/TestCase.php"
+        ],
+        "psr-0": {
+            "Littera": "src/"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan clear-compiled",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "php artisan clear-compiled",
+            "php artisan optimize"
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable"
 }
