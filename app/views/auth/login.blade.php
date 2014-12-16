@@ -21,8 +21,8 @@
 		</ul>
 	</div>
 	@endif
-	{{ Form::text('login', null, ['class' => 'form-control', 'placeholder' => trans('auth/views.input_login'), 'require', 'autofocus']) }}
-	{{ Form::password('password', ['class' => 'form-control', 'placeholder' => trans('auth/views.input_password'), 'require']) }}
+	{{ Form::text('login', null, ['class' => 'form-control', 'placeholder' => trans('auth/views.input_login'), 'required', 'autofocus']) }}
+	{{ Form::password('password', ['class' => 'form-control', 'placeholder' => trans('auth/views.input_password'), 'required']) }}
 	<div class="checkbox col-xs-6">
 		<label>
 			<input type="checkbox" name="remember_me" value="true"> {{ trans('auth/views.input_remember_me') }}
