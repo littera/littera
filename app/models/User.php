@@ -5,11 +5,10 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
-use Littera\System\Traits\RulesTrait;
 
-class User extends Eloquent implements UserInterface, RemindableInterface
+class User extends BaseEloquent implements UserInterface, RemindableInterface
 {
-	use UserTrait, RemindableTrait, RulesTrait, SoftDeletingTrait;
+	use UserTrait, RemindableTrait, SoftDeletingTrait;
 
 	/**
 	 * The database table used by the model.

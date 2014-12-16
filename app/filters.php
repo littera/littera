@@ -69,7 +69,7 @@ Route::filter('guest', function()
 		}
 		else
 		{
-			return Redirect::back()->with('danger', 'Already authorized');
+			return Redirect::to('/')->with('danger', 'Already authorized');
 		}
 	}
 });

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
-class Permission
+class Permission extends BaseEloquent
 {
 	use SoftDeletingTrait;
 

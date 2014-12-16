@@ -1,8 +1,6 @@
 <?php
 
-use Illuminate\Database\Eloquent\SoftDeletingTrait;
-
-class Image
+class Image extends BaseEloquent
 {
 	/**
 	 * The database table used by the model.
