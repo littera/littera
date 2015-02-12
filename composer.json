@@ -1,6 +1,6 @@
 {
     "name": "littera/littera",
-    "description": "CMS based on Laravel Framework.",
+    "description": "CMS based on Laravel 5.",
     "keywords": [
         "cms",
         "laravel"
@@ -14,31 +14,29 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
-        "laravel/framework": "~4.2",
-        "intervention/image": "~2.0",
-        "intervention/imagecache": "~2.0",
-        "doctrine/dbal": "~2.4"
+        "laravel/framework": "5.0.*",
+        "intervention/image": "2.1.*",
+        "intervention/imagecache": "2.1.*",
+        "doctrine/dbal": "2.5.*"
     },
     "require-dev": {
-        "codeception/aspect-mock": "~0.5",
-        "codeception/codeception": "~2.0",
-        "barryvdh/laravel-debugbar": "~1.0",
-        "barryvdh/laravel-ide-helper": "~1.0",
-        "way/generators": "~2.0"
+        "barryvdh/laravel-debugbar": "~2.0",
+        "barryvdh/laravel-ide-helper": "~2.0",
+        "phpunit/phpunit": "~4.0",
+        "phpspec/phpspec": "~2.1"
     },
     "autoload": {
         "classmap": [
-            "app/commands",
-            "app/controllers",
-            "app/models",
-            "app/database/migrations",
-            "app/database/seeds",
-            "app/tests/TestCase.php"
+            "database"
         ],
-        "psr-0": {
-            "Littera": "src/"
+        "psr-4": {
+            "App\\": "app/"
         }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
     },
     "scripts": {
         "post-install-cmd": [
@@ -50,11 +48,11 @@
             "php artisan optimize"
         ],
         "post-create-project-cmd": [
+            "php -r \"copy('.env.example', '.env');\"",
             "php artisan key:generate"
         ]
     },
     "config": {
         "preferred-install": "dist"
-    },
-    "minimum-stability": "stable"
+    }
 }

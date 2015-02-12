@@ -1,10 +1,5 @@
 _ide_helper.php
-.idea
-/bootstrap/compiled.php
+/.idea
 /vendor
-composer.phar
 composer.lock
-.env.*.php
-.env.php
-.DS_Store
-Thumbs.db
+.env

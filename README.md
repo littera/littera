@@ -1,6 +1,6 @@
 ## Littera
 
-Littera is a CMS based on Laravel framework
+Littera is a CMS based on Laravel 5
 
 ### Very thanks
 
