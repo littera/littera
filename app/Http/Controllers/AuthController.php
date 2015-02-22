@@ -2,6 +2,7 @@
 
 use App\Models\User;
 use Auth;
+use Illuminate\Http\Request;
 use Input;
 use Lang;
 
@@ -29,28 +30,25 @@ class AuthController extends BaseController
         ]);
     }
 
-    public function postLogin()
+    public function postLogin(Request $request)
     {
-        list($msg, $data) = $this->validator(Input::all(), $this->user->getRules());
+        $this->validate($request, $this->user->getRules());
 
-        if ($msg) {
-            return redirect()->route('auth.getLogin')->withErrors($msg);
-        }
+        $input = $request->all();
 
         $credentials = [
-            'password' => $data['password'],
+            'password' => $input['password'],
             'active' => 1,
         ];
 
-        if (filter_var($data['login'], FILTER_VALIDATE_EMAIL)) {
-            $credentials['email'] = $data['login'];
+        if (filter_var($input['login'], FILTER_VALIDATE_EMAIL)) {
+            $credentials['email'] = $input['login'];
         } else {
-            $credentials['username'] = $data['login'];
+            $credentials['username'] = $input['login'];
         }
 
-        $remember_me = (isset($data['remember_me']) && $data['remember_me'] == 'true') ? true : false;
-
-        if (Auth::attempt($credentials, $remember_me)) {
+        if (Auth::attempt($credentials, $request->has('remember_me')))
+        {
             return redirect()->route('cms.Dashboard.getIndex')->with('success', Lang::get('auth/messages.login.success'));
         }
 
