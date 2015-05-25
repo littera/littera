@@ -1,15 +1,34 @@
-## Littera
+# Littera
+
+[![Build Status](https://travis-ci.org/littera/littera.svg)](https://travis-ci.org/littera/littera)
+[![Total Downloads](https://poser.pugx.org/littera/littera/d/total.svg)](https://packagist.org/packages/littera/littera)
+[![License](https://poser.pugx.org/littera/littera/license.svg)](https://packagist.org/packages/littera/littera)
 
 Littera is a CMS based on Laravel 5
 
-### Very thanks
+## Table of Content
 
-* [jQuery](https://jquery.com/)
-* [Twitter Bootstrap 3](http://getbootstrap.com/)
-* [Font Awesome](http://fontawesome.io/)
+* [Installation](#quick-installation)
+* [Resources](#resources)
+* [License](#license)
 
-### License
+## Installation
 
-The Littera is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+```bash
+composer create-project littera/littera your-project-name --prefer-dist
+cd you-project-name
+npm install
+bower install
+gulp
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+## Resources
+
+* [Website](http://getlittera.com)
+* [Documentation](https://github.com/littera/docs)
+* [Bug Tracker](https://github.com/littera/littera/issues)
+
+## License
+
+* The Littera is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT) by [Taylor Otwell](https://github.com/taylorotwell)
+* The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT) by [Nikolay Denisenko](https://github.com/pektop)
