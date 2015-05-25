@@ -6,8 +6,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract
-{
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
     use Authenticatable, CanResetPassword, SoftDeletes;
 
@@ -38,9 +37,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $rules = [
-        'username' => 'required|alpha_dash',
+        'login' => 'required|alpha_dash',
         'email' => 'required|email',
-        'password' => 'required|confirmed|min:6',
+        'password' => 'required|confirmed|min:8',
         'remember_me' => '',
     ];
 

@@ -1,10 +1,8 @@
 {
     "name": "littera/littera",
     "description": "CMS based on Laravel 5.",
-    "keywords": [
-        "cms",
-        "laravel"
-    ],
+    "homepage": "http://getlittera.com/",
+    "keywords": ["cms", "laravel"],
     "license": "MIT",
     "authors": [
         {
@@ -14,16 +12,18 @@
         }
     ],
     "require": {
+        "illuminate/html": "5.0.*",
+        "intervention/image": "2.2.*",
+        "intervention/imagecache": "2.2.*",
         "laravel/framework": "5.0.*",
-        "intervention/image": "2.1.*",
-        "intervention/imagecache": "2.1.*",
-        "doctrine/dbal": "2.5.*"
+        "laravel/socialite": "2.0.*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "~2.0",
         "barryvdh/laravel-ide-helper": "~2.0",
         "phpunit/phpunit": "~4.0",
-        "phpspec/phpspec": "~2.1"
+        "phpspec/phpspec": "~2.1",
+        "rap2hpoutre/laravel-log-viewer": "~0.2"
     },
     "autoload": {
         "classmap": [

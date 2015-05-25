@@ -1,5 +1,5 @@
 <?php
 
 return [
-	'sr_close' => 'Close',
+    'sr_close' => 'Close',
 ];

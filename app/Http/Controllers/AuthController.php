@@ -32,27 +32,37 @@ class AuthController extends BaseController
 
     public function postLogin(Request $request)
     {
-        $this->validate($request, $this->user->getRules());
-
-        $input = $request->all();
+        list($msg, $data) = $this->validator($request, [
+            'login' => 'required',
+            'password' => 'required',
+        ], [
+            'login' => trans('app/auth.attr.login'),
+            'password' => trans('app/auth.attr.password'),
+        ]);
 
         $credentials = [
-            'password' => $input['password'],
-            'active' => 1,
+            'password' => $data['password'],
+            'is_active' => true,
         ];
 
-        if (filter_var($input['login'], FILTER_VALIDATE_EMAIL)) {
-            $credentials['email'] = $input['login'];
-        } else {
-            $credentials['username'] = $input['login'];
-        }
-
-        if (Auth::attempt($credentials, $request->has('remember_me')))
+        if (filter_var($data['login'], FILTER_VALIDATE_EMAIL))
         {
-            return redirect()->route('cms.Dashboard.getIndex')->with('success', Lang::get('auth/messages.login.success'));
+            $credentials['email'] = $data['login'];
+        }
+        else
+        {
+            $credentials['login'] = $data['login'];
         }
 
-        return redirect()->route('auth.getLogin')->with('danger', Lang::get('auth/messages.login.danger'));
+        if ($this->auth->attempt($credentials, $request->has('remember')))
+        {
+            return redirect()->intended(url('/'))
+                             ->with('success', trans('app/auth.login.success'));
+        }
+
+        return redirect(url('auth/login'))
+            ->withInput($request->only('email', 'remember'))
+            ->with('fail', trans('app/auth.login.fail'));
     }
 
     public function getLogout()

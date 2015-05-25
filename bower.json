@@ -1,0 +1,20 @@
+{
+  "name": "littera",
+  "version": "0.0.0",
+  "homepage": "https://github.com/littera/littera",
+  "authors": [
+    "Nikolay <mail2nikolas@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "fontawesome": "~4.3.0"
+  }
+}

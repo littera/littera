@@ -13,19 +13,16 @@
 
 Route::group(['prefix'=>'auth'], function()
 {
-    Route::get('logout', ['as' => 'auth.getLogout', 'before'=>'auth', 'uses'=>'AuthController@getLogout']);
-    Route::group(['before'=>'guest'], function ()
-    {
-        Route::get('login', ['as' => 'auth.getLogin', 'uses' => 'AuthController@getLogin']);
-        Route::post('login', ['as' => 'auth.postLogin', 'uses' => 'AuthController@postLogin']);
-        Route::get('register', ['as' => 'auth.getRegister', 'uses' => 'AuthController@getRegister']);
-        Route::post('register', ['as' => 'auth.postRegister', 'uses' => 'AuthController@postRegister']);
-        Route::get('activate/{token}', 'AuthController@getActivate');
-        Route::get('reminder', ['as' => 'auth.getReminder', 'uses' => 'AuthController@getReminder']);
-        Route::post('reminder', ['as' => 'auth.postReminder', 'uses' => 'AuthController@postReminder']);
-        Route::get('reset/{token}', 'AuthController@getReset');
-        Route::post('reset/{token}', 'AuthController@postReset');
-    });
+    Route::get('register', 'Auth\AuthController@getRegister');
+    Route::post('register', 'Auth\AuthController@postRegister');
+    Route::get('login', 'Auth\AuthController@getLogin');
+    Route::post('login', 'Auth\AuthController@postLogin');
+    Route::get('logout', 'Auth\AuthController@getLogout');
+    Route::get('activate/{token}', 'Auth\AuthController@getActivate');
+    Route::get('reset', 'AuthController@getReminder');
+    Route::post('reset', 'AuthController@postReminder');
+    Route::get('reset/{token}', 'Auth\PasswordController@getReset');
+    Route::post('reset/{token}', 'Auth\PasswordController@postReset');
 });
 
 Route::group(['before' => 'auth', 'prefix' => 'cms'], function()
@@ -33,4 +30,8 @@ Route::group(['before' => 'auth', 'prefix' => 'cms'], function()
     Route::get('/', ['as' => 'cms.Dashboard.getIndex', 'uses' => 'Cms\DashboardController@getIndex']);
 });
 
-Route::get('/', ['as' => 'page.getIndex', 'uses' => 'Site\PagesController@getIndex']);
+if (app()->isLocal()) {
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+}
+
+Route::get('{slug?}', 'PagesController@getPage');

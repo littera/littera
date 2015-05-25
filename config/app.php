@@ -4,14 +4,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Littera Version
-    |--------------------------------------------------------------------------
-    |
-    */
-    'version' => '0.0.2',
-
-    /*
-    |--------------------------------------------------------------------------
     | Application Debug Mode
     |--------------------------------------------------------------------------
     |
@@ -144,6 +136,8 @@ return [
         'Illuminate\Validation\ValidationServiceProvider',
         'Illuminate\View\ViewServiceProvider',
 
+        'Illuminate\Html\HtmlServiceProvider',
+
         /*
          * Application Service Providers...
          */
@@ -153,6 +147,12 @@ return [
         'App\Providers\DevServiceProvider',
         'App\Providers\EventServiceProvider',
         'App\Providers\RouteServiceProvider',
+        'App\Providers\VersionServiceProvider',
+
+        /*
+         * Third-party Service Providers...
+         */
+        'Intervention\Image\ImageServiceProvider',
 
     ],
 
@@ -201,6 +201,11 @@ return [
         'URL' => 'Illuminate\Support\Facades\URL',
         'Validator' => 'Illuminate\Support\Facades\Validator',
         'View' => 'Illuminate\Support\Facades\View',
+
+        'Form' => 'Illuminate\Html\FormFacade',
+        'Html' => 'Illuminate\Html\HtmlFacade',
+
+        'Image' => 'Intervention\Image\Facades\Image',
 
     ],
 

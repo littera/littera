@@ -1,6 +1,5 @@
 <?php namespace App\Providers;
 
-use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
 class DevServiceProvider extends ServiceProvider
@@ -13,10 +12,10 @@ class DevServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->isLocal())
-        {
-            $this->app->register('Barryvdh\Debugbar\ServiceProvider');
+        if ($this->app->isLocal()) {
             $this->app->register('Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider');
+            $this->app->register('Barryvdh\Debugbar\ServiceProvider');
+            $this->app->register('Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider');
         }
     }
 
@@ -27,10 +26,7 @@ class DevServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if ($this->app->isLocal())
-        {
-            AliasLoader::getInstance(['Debugbar' => 'Barryvdh\Debugbar\Facade'])->register();
-        }
+        //
     }
 
 }
