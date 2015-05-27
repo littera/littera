@@ -1,14 +1,17 @@
 {
     "name": "littera/littera",
     "description": "CMS based on Laravel 5.",
-    "homepage": "http://getlittera.com/",
     "keywords": ["cms", "laravel"],
     "license": "MIT",
+    "homepage": "http://getlittera.com/",
+    "support": {
+        "issues": "https://github.com/littera/littera/issues",
+        "source": "https://github.com/littera/littera"
+    },
     "authors": [
         {
             "name": "Nikoay Denisenko",
-            "email": "mail@pektop.net",
-            "homepage": "http://pektop.net/"
+            "email": "mail@pektop.net"
         }
     ],
     "require": {
@@ -31,7 +34,10 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "files": [
+            "app/Http/helpers.php"
+        ]
     },
     "autoload-dev": {
         "classmap": [
