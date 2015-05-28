@@ -9,12 +9,13 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
+    "vendor/bower_components",
     "tests"
   ],
   "dependencies": {
+    "adminlte": "~2.1.1",
     "bootstrap": "~3.3.4",
-    "fontawesome": "~4.3.0"
+    "fontawesome": "~4.3.0",
+    "jquery": "~2.1.4"
   }
 }
