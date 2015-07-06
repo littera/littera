@@ -141,10 +141,8 @@ return [
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
-        App\Providers\DevServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\VersionServiceProvider::class,
 
         /*
          * Third-party Service Providers...

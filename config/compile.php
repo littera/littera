@@ -16,10 +16,8 @@ return [
     'files' => [
 
         realpath(app_path('Providers/AppServiceProvider.php')),
-        realpath(app_path('Providers/DevServiceProvider.php')),
         realpath(app_path('Providers/EventServiceProvider.php')),
         realpath(app_path('Providers/RouteServiceProvider.php')),
-        realpath(app_path('Providers/VersionServiceProvider.php')),
 
     ],
 
