@@ -1,11 +1,11 @@
-<?php namespace App\Http\Controllers\Admin;
+<?php
+
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 
-
 class PermissionsController extends Controller
 {
-
     public function getIndex()
     {
         //
@@ -50,5 +50,4 @@ class PermissionsController extends Controller
     {
         //
     }
-
 }

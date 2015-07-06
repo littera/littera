@@ -24,7 +24,8 @@
 
 <div class="container">
     @yield('container')
-</div> <!-- /container -->
+</div>
+<!-- /container -->
 
 {!! Html::script('js/vendor.js') !!}
 {!! Html::script('js/app.js') !!}

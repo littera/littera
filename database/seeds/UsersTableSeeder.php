@@ -6,7 +6,11 @@ use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
-
+    /**
+     * Run the users table seed
+     *
+     * @return void
+     */
     public function run()
     {
         DB::table('users')->truncate();
@@ -20,5 +24,4 @@ class UsersTableSeeder extends Seeder
             'activated_at' => new Carbon,
         ]);
     }
-
 }

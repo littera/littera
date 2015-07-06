@@ -13,8 +13,8 @@
     "tests"
   ],
   "dependencies": {
-    "adminlte": "~2.1.1",
-    "bootstrap": "~3.3.4",
+    "adminlte": "~2.1.2",
+    "bootstrap": "~3.3.5",
     "fontawesome": "~4.3.0",
     "jquery": "~2.1.4"
   }

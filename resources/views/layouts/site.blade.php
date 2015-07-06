@@ -49,6 +49,7 @@
     <div class="container">
         <p class="text-muted pull-left">
             &copy; My company 2014
+
         <p class="text-muted pull-right">
             Powered by <a href="http://getlittera.com">Littera</a>
         </p>

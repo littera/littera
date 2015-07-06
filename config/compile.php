@@ -15,13 +15,11 @@ return [
 
     'files' => [
 
-        realpath(__DIR__ . '/../app/Providers/AppServiceProvider.php'),
-        realpath(__DIR__ . '/../app/Providers/BusServiceProvider.php'),
-        realpath(__DIR__ . '/../app/Providers/ConfigServiceProvider.php'),
-        realpath(__DIR__ . '/../app/Providers/DevServiceProvider.php'),
-        realpath(__DIR__ . '/../app/Providers/EventServiceProvider.php'),
-        realpath(__DIR__ . '/../app/Providers/RouteServiceProvider.php'),
-        realpath(__DIR__ . '/../app/Providers/VersionServiceProvider.php'),
+        realpath(app_path('Providers/AppServiceProvider.php')),
+        realpath(app_path('Providers/DevServiceProvider.php')),
+        realpath(app_path('Providers/EventServiceProvider.php')),
+        realpath(app_path('Providers/RouteServiceProvider.php')),
+        realpath(app_path('Providers/VersionServiceProvider.php')),
 
     ],
 

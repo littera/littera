@@ -7,7 +7,6 @@ return [
         'success' => 'Authentication is successful!',
         'title' => 'Login',
     ],
-
     'attr' => [
         'login' => 'Login',
         'password' => 'Password',

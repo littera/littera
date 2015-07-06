@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateActivateUsersTable extends Migration {
-
+class CreateActivateUsersTable extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -28,5 +28,4 @@ class CreateActivateUsersTable extends Migration {
     {
         Schema::drop('activate_users');
     }
-
 }

@@ -1,11 +1,12 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use App\Models\Page;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PagesController extends Controller
 {
-
     /**
      * @var Page
      */

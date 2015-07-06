@@ -1,11 +1,13 @@
 <?php
 
 return [
-	'a_remind' => 'Forgot password?',
 
-	'input_login' => 'Username or Email address',
-	'input_password' => 'Password',
-	'input_remember_me' => 'Remember me',
+    'a_remind' => 'Forgot password?',
 
-	'button_login' => 'Login'
+    'input_login' => 'Username or Email address',
+    'input_password' => 'Password',
+    'input_remember_me' => 'Remember me',
+
+    'button_login' => 'Login'
+
 ];

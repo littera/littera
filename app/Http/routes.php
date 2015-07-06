@@ -30,8 +30,4 @@ Route::group(['before' => 'auth', 'prefix' => 'cms'], function()
     Route::get('/', ['as' => 'cms.Dashboard.getIndex', 'uses' => 'Cms\DashboardController@getIndex']);
 });
 
-if (app()->isLocal()) {
-    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-}
-
 Route::get('{slug?}', 'PagesController@getPage');

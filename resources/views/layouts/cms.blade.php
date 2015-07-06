@@ -30,7 +30,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('cms.Dashboard.getIndex') }}">Littera <small>{{ Config::get('app.version') }}</small></a>
+            <a class="navbar-brand" href="{{ route('cms.Dashboard.getIndex') }}">Littera
+                <small>{{ Config::get('app.version') }}</small>
+            </a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -105,14 +107,16 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Dashboard</h1>
             @if (Session::has('success'))
-            <div class="alert alert-success alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert">
-                    <span aria-hidden="true">&times;</span><span class="sr-only">{{ trans('views.sr_close') }}</span>
-                </button>
-                {{ Session::get('success') }}
-            </div>
+                <div class="alert alert-success alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span><span
+                                class="sr-only">{{ trans('views.sr_close') }}</span>
+                    </button>
+                    {{ Session::get('success') }}
+                </div>
             @endif
             <p class="lead">CMS based on <a href="http://laravel.com/">Laravel framework</a></p>
+
             <h2 class="sub-header">Section title</h2>
         </div>
     </div>

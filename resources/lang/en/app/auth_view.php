@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     'a_reset' => 'Forgot password?',
 
     'input_login' => 'Login or Email',
@@ -8,4 +9,5 @@ return [
     'input_remember_me' => 'Remember me',
 
     'button_login' => 'Login'
+
 ];

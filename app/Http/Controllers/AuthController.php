@@ -1,15 +1,14 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
 
 use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
-use Input;
 use Lang;
 
-
-class AuthController extends BaseController
+class AuthController extends Controller
 {
-
     /**
      * @var User
      */
@@ -106,5 +105,4 @@ class AuthController extends BaseController
     {
         //
     }
-
 }
