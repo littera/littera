@@ -1,4 +1,6 @@
-<?php namespace App\Models;
+<?php
+
+namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -6,8 +8,8 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
-
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
+{
     use Authenticatable, CanResetPassword, SoftDeletes;
 
     /**
@@ -22,7 +24,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      *
      * @var array
      */
-    protected $fillable = ['username', 'email', 'password'];
+    protected $fillable = [
+        'login',
+        'email',
+        'role_id',
+        'password',
+    ];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -30,17 +37,4 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
-
-    /**
-     * The registered rules
-     *
-     * @var array
-     */
-    protected $rules = [
-        'login' => 'required|alpha_dash',
-        'email' => 'required|email',
-        'password' => 'required|confirmed|min:8',
-        'remember_me' => '',
-    ];
-
 }

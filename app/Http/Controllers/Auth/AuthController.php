@@ -3,155 +3,97 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Contracts\Auth\Registrar;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use App\Models\User;
+use App\Traits\Auth\Login;
+use App\Traits\Auth\Register;
+use App\Traits\Auth\Throttle;
+use Validator;
 
 class AuthController extends Controller
 {
-    /**
-     * The Guard implementation.
-     *
-     * @var \Illuminate\Contracts\Auth\Guard
-     */
-    protected $auth;
+    use Login, Register, Throttle;
 
     /**
-     * The registrar implementation.
+     * Path to the login route.
      *
-     * @var \Illuminate\Contracts\Auth\Registrar
+     * @var string
      */
-    protected $registrar;
+    protected $loginPath = '/auth/login';
+
+    /**
+     * Post register/login redirect path.
+     *
+     * @var string
+     */
+    protected $redirectPath = '/';
+
+    /**
+     * Post logout redirect path.
+     *
+     * @var string
+     */
+    protected $redirectAfterLogout = '/';
+
 
     /**
      * Create a new authentication controller instance.
      *
-     * @param  \Illuminate\Contracts\Auth\Guard $auth
-     * @param  \Illuminate\Contracts\Auth\Registrar $registrar
      * @return void
      */
-    public function __construct(Guard $auth, Registrar $registrar)
+    public function __construct()
     {
-        $this->auth = $auth;
-        $this->registrar = $registrar;
-
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
     /**
-     * Show the application registration form.
+     * Get the post register/login redirect path.
      *
-     * @return \Illuminate\Http\Response
+     * @return string
      */
-    public function getRegister()
+    protected function redirectPath()
     {
-        return view('auth.register');
-    }
-
-    /**
-     * Handle a registration request for the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function postRegister(Request $request)
-    {
-        $validator = $this->registrar->validator($request->all());
-
-        if ($validator->fails())
-        {
-            $this->throwValidationException(
-                $request, $validator
-            );
+        if (property_exists($this, 'redirectPath')) {
+            return $this->redirectPath;
         }
 
-        $this->auth->login($this->registrar->create($request->all()));
-
-        return redirect(url('/'));
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
     }
 
     /**
-     * Show the application login form.
+     * Get a validator for an incoming registration request.
      *
-     * @return \Illuminate\Http\Response
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
      */
-    public function getLogin()
+    protected function validator(array $data)
     {
-        return view('auth.login', [
-            'title' => trans('app/auth.login.title'),
-        ]);
-    }
-
-    /**
-     * Handle a login request to the application.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function postLogin(Request $request)
-    {
-        list($msg, $data) = $this->validator($request, [
-            'login' => 'required',
-            'password' => 'required',
-        ], [
-            'login' => trans('app/auth.attr.login'),
-            'password' => trans('app/auth.attr.password'),
+        $validator = Validator::make($data, [
+            'login' => 'required|alpha_dash|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|confirmed|min:6',
         ]);
 
-        if ($msg)
-        {
-            return redirect()
-                ->intended(url('auth/login'))
-                ->withInput($request->only('login', 'rememeber_me'))
-                ->withErrors($msg);
-        }
+        $validator->setAttributeNames($this->embed([
+            'login' => trans('auth/attributes.login'),
+            'email' => trans('auth/attributes.email'),
+            'password' => trans('auth/attributes.password'),
+        ]));
 
-        $credentials = [
-            'password' => $data['password'],
-            'is_active' => true,
-        ];
-
-        if (filter_var($data['login'], FILTER_VALIDATE_EMAIL))
-        {
-            $credentials['email'] = $data['login'];
-        }
-        else
-        {
-            $credentials['login'] = $data['login'];
-        }
-
-        if ($this->auth->attempt($credentials, $request->has('remember')))
-        {
-            return redirect()->intended(url('/'))
-                ->with('success', trans('app/auth.login.success'));
-        }
-
-        return redirect(url('auth/login'))
-            ->withInput($request->only('email', 'remember'))
-            ->with('fail', trans('app/auth.login.fail'));
+        return $validator;
     }
-
 
     /**
-     * Log the user out of the application.
+     * Create a new user instance after a valid registration.
      *
-     * @return \Illuminate\Http\Response
+     * @param  array  $data
+     * @return User
      */
-    public function getLogout()
+    protected function create(array $data)
     {
-        $this->auth->logout();
-
-        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/');
-    }
-
-    public function getActivate($token = null)
-    {
-        if (is_null($token))
-        {
-            throw new NotFoundHttpException;
-        }
-
-        // TODO
+        return User::create([
+            'login' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
     }
 }

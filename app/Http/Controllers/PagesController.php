@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class PagesController extends Controller
 {
@@ -38,21 +37,28 @@ class PagesController extends Controller
 
         if (null === $page)
         {
-            throw new NotFoundHttpException;
+            abort(404);
         }
 
         if (null === $slug)
         {
-            return view('pages.index', [
+            return view('templates.home', [
                 'page' => $page
             ]);
         }
         else
         {
-            return view('pages.internal', [
+            return view('templates.default', [
                 'page' => $page
             ]);
         }
+    }
+
+    public function getWelcome()
+    {
+        return view('pages.welcome', [
+            'title' => 'Welcome to Littera'
+        ]);
     }
 
 }

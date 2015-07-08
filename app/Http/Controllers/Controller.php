@@ -17,7 +17,7 @@ abstract class Controller extends BaseController
      * @param  string  $tag
      * @return array
      */
-    protected function embed($attr, $tag)
+    protected function embed($attr, $tag = 'strong')
     {
         $result = [];
 
@@ -28,28 +28,4 @@ abstract class Controller extends BaseController
         return $result;
     }
 
-    /**
-     * @param  Request  $request
-     * @param  array  $rules
-     * @param  array  $attr
-     * @param  string  $tag
-     * @return array|bool
-     */
-    protected function validator(Request $request, array $rules, array $attr = [], $tag = 'strong')
-    {
-        // Avoid unnecessary parameters
-        $target_data = array_intersect_key($request->all(), $rules);
-
-        $validator = Validator::make($target_data, $rules);
-
-        if ($attr) {
-            $validator->setAttributeNames($this->embed($attr, $tag));
-        }
-
-        if ($validator->fails()) {
-            return [$validator->getMessageBag(), $target_data];
-        }
-
-        return [false, $target_data];
-    }
 }

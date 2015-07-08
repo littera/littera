@@ -11,20 +11,23 @@ var elixir = require('laravel-elixir');
  |
  */
 
- var paths = {
-    'assets': './resources/assets/',
-    'bootstrap': './vendor/bower_components/bootstrap/',
-    'fontawesome': './vendor/bower_components/fontawesome/',
-    'jquery': './vendor/bower_components/jquery/'
+var paths = {
+  'assets': './resources/assets/',
+  'bootstrap': './vendor/bower_components/bootstrap/',
+  'fontawesome': './vendor/bower_components/fontawesome/',
+  'jquery': './vendor/bower_components/jquery/'
 };
 
-elixir(function(mix) {
-    mix.less('app.less')
-        .scriptsIn(paths.assets + 'js', 'public/js/app.js')
-        .scripts([
-            paths.jquery + 'dist/jquery.js',
-            paths.bootstrap + 'dist/js/bootstrap.js',
-        ], 'public/js/vendor.js', './')
-        .copy(paths.fontawesome + 'fonts/**', 'public/fonts')
-        .copy(paths.bootstrap + 'fonts/**', 'public/fonts');
+elixir(function (mix) {
+  mix.less('admin.less', 'public/css/admin.css')
+    .less('app.less', 'public/css/app.css')
+    .less('auth.less', 'public/css/auth.css')
+    .less('common.less', 'public/css/common.css')
+    .scriptsIn(paths.assets + 'js', 'public/js/app.js')
+    .scripts([
+      paths.jquery + 'dist/jquery.js',
+      paths.bootstrap + 'dist/js/bootstrap.js'
+    ], 'public/js/vendor.js', './')
+    .copy(paths.fontawesome + 'fonts/**', 'public/fonts')
+    .copy(paths.bootstrap + 'fonts/**', 'public/fonts');
 });

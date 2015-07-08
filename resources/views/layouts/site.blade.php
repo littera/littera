@@ -8,9 +8,10 @@
     <meta name="author" content="">
     <link rel="icon" href="favicon.ico">
 
-    <title>Home - Littera</title>
+    <title>{{ $title }}</title>
 
-    {{ Html::style('css/app.css') }}
+    {!! Html::style('css/common.css') !!}
+    {!! Html::style('css/app.css') !!}
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -31,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('page.getIndex') }}">My company</a>
+            <a class="navbar-brand" href="#">My company</a>
         </div>
         <div class="collapse navbar-collapse">
             @include('partials.menu_left')
@@ -56,7 +57,7 @@
     </div>
 </div>
 
-{{ Html::script('js/vendor.js') }}
-{{ Html::script('js/app.js') }}
+{!! Html::script('js/vendor.js') !!}
+{!! Html::script('js/app.js') !!}
 </body>
 </html>

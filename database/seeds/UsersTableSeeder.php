@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -18,10 +17,8 @@ class UsersTableSeeder extends Seeder
         User::create([
             'login' => 'admin',
             'email' => 'mail@pektop.net',
+            'role_id' => 1,
             'password' => bcrypt('adminPassword'),
-            'is_active' => 1,
-            'is_admin' => 1,
-            'activated_at' => new Carbon,
         ]);
     }
 }

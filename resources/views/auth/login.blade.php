@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('container')
-{!! Form::open([url('auth/login'), 'class' => 'form-login', 'role' => 'form']) !!}
+{!! Form::open([url('/auth/login'), 'class' => 'form-login', 'role' => 'form']) !!}
     <h1 class="form-login-heading text-center">Littera <small>{{ $littera_version }}</small></h1>
     @if (Session::has('fail'))
     <div class="alert alert-danger alert-dismissible" role="alert">
@@ -21,17 +21,17 @@
         </ul>
     </div>
     @endif
-    {!! Form::text('login', null, ['class' => 'form-control', 'placeholder' => trans('app/auth_view.input_login'), 'autofocus']) !!}
-    {!! Form::password('password', ['class' => 'form-control', 'placeholder' => trans('app/auth_view.input_password')]) !!}
+    {!! Form::text('login', null, ['class' => 'form-control', 'placeholder' => trans('auth/views.login.input_login'), 'autofocus']) !!}
+    {!! Form::password('password', ['class' => 'form-control', 'placeholder' => trans('auth/views.login.input_password')]) !!}
     <div class="checkbox col-xs-6">
         <label>
-            <input type="checkbox" name="remember_me" value="true"> {{ trans('app/auth_view.input_remember_me') }}
+            <input type="checkbox" name="remember_me" value="true"> {{ trans('auth/views.login.input_remember_me') }}
         </label>
     </div>
     <div class="form-remind col-xs-6 text-right">
-        <a href="{{ url('auth/reset') }}">{{ trans('app/auth_view.a_reset') }}</a>
+        <a href="{{ url('/password/email') }}">{{ trans('auth/views.login.a_password_email') }}</a>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">{{ trans('app/auth_view.button_login') }}</button>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">{{ trans('auth/views.login.submit') }}</button>
     <p class="help-block text-center">
         <small>
             <a href="http://getlittera.com">Littera</a> made with <span class="text-danger">♥</span> by <a href="http://pektop.net">PEKTOP</a>

@@ -2,14 +2,18 @@
 
 namespace App\Models;
 
-class Page extends Model
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Role extends Model
 {
+    use SoftDeletes;
+
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'pages';
+    protected $table = 'roles';
 
     /**
      * The attributes that are mass assignable.
@@ -17,10 +21,7 @@ class Page extends Model
      * @var array
      */
     protected $fillable = [
-        'title',
+        'name',
         'slug',
-        'body',
-        'meta_description',
-        'meta_keywords',
     ];
 }

@@ -3,7 +3,7 @@
 @section('container')
 
 <div class="page-header">
-    <h1>Internal Page</h1>
+    <h1>{{ $title }}</h1>
 </div>
 
 @if (Session::has('success'))
@@ -14,7 +14,5 @@
     {{ Session::get('success') }}
 </div>
 @endif
-
-<p class="lead">CMS based on Laravel Framework</p>
 
 @stop

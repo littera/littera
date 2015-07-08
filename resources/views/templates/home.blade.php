@@ -3,7 +3,7 @@
 @section('container')
 
 <div class="page-header">
-    <h1>Wellcome to Littera</h1>
+    <h1>Home</h1>
 </div>
 
 @if (Session::has('success'))
@@ -14,7 +14,5 @@
     {{ Session::get('success') }}
 </div>
 @endif
-
-<p class="lead">CMS based on Laravel Framework</p>
 
 @stop

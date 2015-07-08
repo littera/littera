@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class RolesController extends Controller
 {
@@ -16,17 +17,17 @@ class RolesController extends Controller
         //
     }
 
-    public function postCreate()
+    public function postCreate(Request $request)
     {
         //
     }
 
-    public function getEdit($id)
+    public function getItem($id)
     {
         //
     }
 
-    public function postEdit($id)
+    public function postItem(Request $request, $id)
     {
         //
     }
@@ -36,17 +37,7 @@ class RolesController extends Controller
         //
     }
 
-    public function postDelete($id)
-    {
-        //
-    }
-
     public function getRestore($id)
-    {
-        //
-    }
-
-    public function postRestore($id)
     {
         //
     }

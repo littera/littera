@@ -10,7 +10,8 @@
 
     <title>Littera</title>
 
-    {{ Html::style('css/app.css') }}
+    {!! Html::style('css/common.css') !!}
+    {!! Html::style('css/admin.css') !!}
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -122,7 +123,7 @@
     </div>
 </div>
 
-{{ Html::script('js/vendor.js') }}
-{{ Html::script('js/app.js') }}
+{!! Html::script('js/vendor.js') !!}
+{!! Html::script('js/app.js') !!}
 </body>
 </html>
