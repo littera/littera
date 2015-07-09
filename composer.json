@@ -1,6 +1,6 @@
 {
     "name": "littera/littera",
-    "description": "CMS based on Laravel 5.",
+    "description": "CMS based on Laravel 5.1",
     "keywords": ["cms", "laravel"],
     "license": "MIT",
     "homepage": "http://getlittera.com/",

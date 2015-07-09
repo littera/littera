@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/littera/littera/d/total.svg)](https://packagist.org/packages/littera/littera)
 [![License](https://poser.pugx.org/littera/littera/license.svg)](https://packagist.org/packages/littera/littera)
 
-Littera is a CMS based on Laravel 5
+Littera is a CMS based on Laravel 5.1
 
 ## Table of Content
 
