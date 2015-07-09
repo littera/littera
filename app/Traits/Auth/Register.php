@@ -2,7 +2,9 @@
 
 namespace App\Traits\Auth;
 
+use App\Support\DateTime;
 use Auth;
+use DB;
 use Illuminate\Http\Request;
 
 trait Register
@@ -15,7 +17,7 @@ trait Register
     public function getRegister()
     {
         return view('auth.register', [
-            'title' => 'auth/views.register.title'
+            'title' => trans('auth/views.register.title')
         ]);
     }
 
@@ -40,6 +42,25 @@ trait Register
 
         Auth::login($this->create($request->all()));
 
+        $this->updateLastLoginTimestamp();
+
+        DB::table(config('auth.activation.table'))->insert([
+            'user_id' => Auth::user()->id,
+            'token' => $this->generateToken(),
+            'created_at' => lh_date(time(), DateTime::DB_TIMESTAMP),
+            'updated_at' => lh_date(time(), DateTime::DB_TIMESTAMP),
+        ]);
+
         return redirect($this->redirectPath());
+    }
+
+    /**
+     * Return a random string for a token.
+     *
+     * @return string
+     */
+    protected function generateToken()
+    {
+        return hash_hmac('sha256', str_random(40), config('app.key'));
     }
 }

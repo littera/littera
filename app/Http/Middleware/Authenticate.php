@@ -42,8 +42,6 @@ class Authenticate
             }
         }
 
-        view()->share('current_user', $this->auth->user());
-
         return $next($request);
     }
 }

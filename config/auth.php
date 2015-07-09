@@ -45,6 +45,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Activation User Accounts Settings
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'activation' => [
+        'email' => 'emails.activation',
+        'table' => 'users_activations',
+        'expire' => 1440,
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Password Reset Settings
     |--------------------------------------------------------------------------
     |
@@ -60,7 +73,7 @@ return [
 
     'password' => [
         'email' => 'emails.password',
-        'table' => 'password_resets',
+        'table' => 'users_reminders',
         'expire' => 60,
     ],
 

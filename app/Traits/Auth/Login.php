@@ -2,6 +2,7 @@
 
 namespace App\Traits\Auth;
 
+use App\Support\DateTime;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,8 @@ trait Login
         {
             $this->clearLoginAttempts($request);
 
+            $this->updateLastLoginTimestamp();
+
             return redirect()->intended($this->redirectPath())
                 ->with('success', trans('auth/messages.login.success'));
         }
@@ -76,6 +79,20 @@ trait Login
         }
 
         return $credentials;
+    }
+
+    /**
+     * Update last login timestamp.
+     *
+     * @return void
+     */
+    protected function updateLastLoginTimestamp()
+    {
+        if (Auth::check())
+        {
+            Auth::user()->last_login = lh_date(time(), DateTime::DB_TIMESTAMP);
+            Auth::user()->save();
+        }
     }
 
     /**

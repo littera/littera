@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Service Unavailable</title>
+    <title>Not Found</title>
 
     <link href="//fonts.googleapis.com/css?family=PT+Sans:400" rel="stylesheet" type="text/css">
 
@@ -11,6 +11,7 @@
         }
 
         body {
+            background-color: #eeeeee;
             margin: 0;
             padding: 0;
             width: 100%;
@@ -40,7 +41,7 @@
 <body>
 <div class="container">
     <div class="content">
-        <div class="title">503. Service Unavailable <br/> <small>Be right back.</small></div>
+        <div class="title">404. Not Found <br/> <small>Sorry, but the page does not exist.</small></div>
     </div>
 </div>
 </body>

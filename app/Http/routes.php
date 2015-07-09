@@ -11,42 +11,33 @@
 |
 */
 
-Route::group(['prefix'=>'auth'], function()
+Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function()
 {
-    Route::get('register', 'Auth\AuthController@getRegister');
-    Route::post('register', 'Auth\AuthController@postRegister');
-    Route::get('login', 'Auth\AuthController@getLogin');
-    Route::post('login', 'Auth\AuthController@postLogin');
-    Route::get('logout', 'Auth\AuthController@getLogout');
-    Route::get('activate/{token}', 'Auth\AuthController@getActivate');
-    Route::get('reset', 'AuthController@getReminder');
-    Route::post('reset', 'AuthController@postReminder');
-    Route::get('reset/{token}', 'Auth\PasswordController@getReset');
-    Route::post('reset/{token}', 'Auth\PasswordController@postReset');
+    Route::get('login', 'AuthController@getLogin');
+    Route::post('login', 'AuthController@postLogin');
+    Route::get('logout', 'AuthController@getLogout');
+
+    Route::get('register', 'AuthController@getRegister');
+    Route::post('register', 'AuthController@postRegister');
+
+    Route::get('activate/{token}', 'AuthController@getActivate');
 });
 
-// Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+Route::group(['namespace' => 'Auth', 'prefix' => 'password'], function()
+{
+    Route::get('email', 'PasswordController@getEmail');
+    Route::post('email', 'PasswordController@postEmail');
 
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
+    Route::get('reset/{token}', 'PasswordController@getReset');
+    Route::post('reset', 'PasswordController@postReset');
+});
 
-// Password reset link request routes...
-Route::get('password/email', 'Auth\PasswordController@getEmail');
-Route::post('password/email', 'Auth\PasswordController@postEmail');
-
-// Password reset routes...
-Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
-Route::post('password/reset', 'Auth\PasswordController@postReset');
-
-Route::group(['before' => 'auth', 'prefix' => 'admin'], function()
+Route::group(['before' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function()
 {
     Route::get('/', [
         'as' => 'admin.dashboard.getIndex',
-        'uses' => 'Admin\DashboardController@getIndex'
+        'permission' => 'admin_dashboard_access',
+        'uses' => 'DashboardController@getIndex'
     ]);
 });
 
