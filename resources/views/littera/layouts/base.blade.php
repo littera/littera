@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
     <title>Littera</title>
 
@@ -38,36 +37,19 @@
                 <li><a href="{{ url('/') }}">Visit site</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="{{ route('littera.dashboard.getIndex') }}">
-                        <span class="glyphicon glyphicon-dashboard"></span>
-                        Dashboard
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-cog"></span>
-                        Settings
-                    </a>
-                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-user"></span>
-                        {{ Auth::user()->username }} <span class="caret"></span>
+                        <img src="https://www.gravatar.com/avatar/{{ md5($current_user->email) }}?d=identicon&s=25"
+                             alt="{{ $current_user->email }}" class="user-image" />
+                        {{ $current_user->email }} <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Change account</a></li>
+                        <li><a href="{{ url('littera/users/'.$current_user->id) }}">Profile</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Change password</a></li>
                         <li><a href="{{ url('auth/logout') }}">Logout</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#">
-                        <span class="glyphicon glyphicon-question-sign"></span>
-                        Help
-                    </a>
-                </li>
+                <li><a href="#" title="Settings"><span class="glyphicon glyphicon-cog"></span></a></li>
             </ul>
         </div>
 
@@ -81,16 +63,12 @@
                 <li class="active"><a href="#dashboard">Dashboard</a></li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li><a href="#menu">Menu</a></li>
                 <li><a href="#pages">Pages</a></li>
+                <li><a href="#menu">Menus</a></li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li><a href="#posts">Posts</a></li>
-                <li><a href="#comments">Commnets</a></li>
-            </ul>
-            <ul class="nav nav-sidebar">
-                <li><a href="#templates">Templates</a></li>
-                <li><a href="#settings">Settings</a></li>
+                <li><a href="#users">Users</a></li>
+                <li><a href="#roles">Roles</a></li>
             </ul>
             <div class="sidebar-footer">
                 <p class="text-muted text-center">
