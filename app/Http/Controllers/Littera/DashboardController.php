@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllees\Admin;
+namespace App\Http\Controllers\Littera;
 
 use App\Http\Controllers\Controller;
 
@@ -8,6 +8,6 @@ class DashboardController extends Controller
 {
     public function getIndex()
     {
-        return view('admin.dashboard');
+        return view('littera.dashboard');
     }
 }

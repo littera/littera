@@ -32,10 +32,10 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'password'], function()
     Route::post('reset/{token}', 'PasswordController@postReset');
 });
 
-Route::group(['before' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function()
+Route::group(['before' => 'auth', 'namespace' => 'Littera', 'prefix' => 'littera'], function()
 {
     Route::get('/', [
-        'as' => 'admin.dashboard.getIndex',
+        'as' => 'littera.dashboard.getIndex',
         'permission' => 'admin_dashboard_access',
         'uses' => 'DashboardController@getIndex'
     ]);

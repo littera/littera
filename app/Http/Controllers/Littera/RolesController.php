@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Littera;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class UsersController extends Controller
+class RolesController extends Controller
 {
     public function getIndex()
     {

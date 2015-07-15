@@ -1,0 +1,1 @@
+@extends('littera.layouts.base')
