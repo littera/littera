@@ -29,7 +29,7 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'password'], function()
     Route::post('email', 'PasswordController@postEmail');
 
     Route::get('reset/{token}', 'PasswordController@getReset');
-    Route::post('reset', 'PasswordController@postReset');
+    Route::post('reset/{token}', 'PasswordController@postReset');
 });
 
 Route::group(['before' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin'], function()

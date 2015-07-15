@@ -23,6 +23,22 @@ return [
         'submit' => 'Create an account',
         'label_login' => 'Already have an account?',
         'a_login' => 'Login',
-    ]
+    ],
+
+    'password' => [
+        'title' => 'Password recovery',
+        'input_email' => 'Email',
+        'submit' => 'Send instructions',
+        'label_login' => 'Want to go back?',
+        'a_login' => 'Login',
+    ],
+
+    'reset' => [
+        'title' => 'Reset password',
+        'input_email' => 'Email',
+        'input_password' => 'Password',
+        'input_password_confirmation' => 'Confirm password',
+        'submit' => 'Reset password',
+    ],
 
 ];

@@ -1,5 +1,5 @@
 <ul class="nav navbar-nav navbar-right">
-    @if (Auth::check())
+    @if(Auth::check())
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="glyphicon glyphicon-user"></span>

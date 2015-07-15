@@ -3,24 +3,8 @@
 @section('container')
     {!! Form::open([url('/auth/login'), 'class' => 'form-login', 'role' => 'form']) !!}
     <h1 class="form-login-heading text-center">{{ $title }}</h1>
-    @if (Session::has('fail'))
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert">
-                <span aria-hidden="true">&times;</span><span class="sr-only">{{ trans('views.sr_close') }}</span>
-            </button>
-            {{ Session::get('fail') }}
-        </div>
-    @endif
-    @if ($errors->any())
-        <div class="alert alert-danger alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert">
-                <span aria-hidden="true">&times;</span><span class="sr-only">{{ trans('views.sr_close') }}</span>
-            </button>
-            <ul class="list-unstyled">
-                {!! implode($errors->all('<li>:message</li>')) !!}
-            </ul>
-        </div>
-    @endif
+    @include('partials.alert')
+    @include('partials.errors')
     <div class="form-group">
         {!! Form::text('login', null, ['class' => 'form-control input-lg', 'placeholder' => trans('auth/views.login.input_login'), 'autofocus']) !!}
     </div>
