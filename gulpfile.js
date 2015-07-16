@@ -15,11 +15,12 @@ var paths = {
   'assets': './resources/assets/',
   'bootstrap': './vendor/bower_components/bootstrap/',
   'fontawesome': './vendor/bower_components/fontawesome/',
-  'jquery': './vendor/bower_components/jquery/'
+  'jquery': './vendor/bower_components/jquery/',
+  'metisMenu': './vendor/bower_components/metisMenu/'
 };
 
 elixir(function (mix) {
-  mix.less('admin.less', 'public/css/admin.css')
+  mix.less('littera.less', 'public/css/littera.css')
     .less('app.less', 'public/css/app.css')
     .less('auth.less', 'public/css/auth.css')
     .less('common.less', 'public/css/common.css')
@@ -28,6 +29,9 @@ elixir(function (mix) {
       paths.jquery + 'dist/jquery.js',
       paths.bootstrap + 'dist/js/bootstrap.js'
     ], 'public/js/vendor.js', './')
+    .scripts([
+      paths.metisMenu + 'dist/metisMenu.js'
+    ], 'public/js/littera.js', './')
     .copy(paths.fontawesome + 'fonts/**', 'public/fonts')
     .copy(paths.bootstrap + 'fonts/**', 'public/fonts');
 });

@@ -1,0 +1,131 @@
+@import (inline) "../../../vendor/bower_components/metisMenu/dist/metisMenu.css";
+@import "variables.less";
+
+.base {
+  padding-left: 240px;
+  transition: all 0.4s ease 0s;
+  height: 100%;
+}
+
+/*
+|------------------------------------------------------------------------------
+| Sidebar
+|------------------------------------------------------------------------------
+*/
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  margin: 0;
+  width: 240px;
+  transition: all 0.4s ease 0s;
+  border-right: 1px solid #ddd;
+
+  .sidebar__brand {
+    > figure {
+      padding: 16px 0 20px;
+      border-bottom: 2px solid #ddd;
+    }
+    .brand__heading {
+      margin: 0;
+      font-weight: bold;
+    }
+  }
+
+  .sidebar__footer {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+  }
+}
+
+/*
+|------------------------------------------------------------------------------
+| Page
+|------------------------------------------------------------------------------
+*/
+
+.page {
+  position: relative;
+  padding: 0;
+  margin: 0;
+
+  .page__header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 240px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+  }
+
+  .page__content {
+    padding-top: 65px;
+  }
+}
+
+.nav-pills {
+  > li {
+    > a {
+      border-radius: 3px;
+    }
+
+    &.dropdown {
+      &.active > a {
+        &,
+        &:hover,
+        &:focus {
+          color: #337ab7;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.nav-flat {
+  > li {
+    > a {
+      border-radius: 0;
+    }
+  }
+}
+
+.nav-stacked {
+  > li {
+    + li {
+      margin-top: 0;
+      border-top: 1px solid #ddd;
+    }
+  }
+}
+
+.nav-shift {
+  > li {
+    > a {
+      padding-left: 30px;
+    }
+  }
+}
+
+.dropdown-menu {
+  border-radius: 3px;
+}
+
+.fa {
+  &.fa-btn {
+    margin-right: 5px;
+  }
+}
+
+.user-image {
+  float: left;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-top: -2px;
+}

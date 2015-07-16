@@ -1,8 +1,9 @@
 @extends('layouts.auth')
 
 @section('container')
+    <h1 class="sr-only">Littera</h1>
     {!! Form::open([url('/auth/login'), 'class' => 'form-login', 'role' => 'form']) !!}
-    <h1 class="form-login-heading text-center">{{ $title }}</h1>
+    <h2 class="form-login-heading text-center">{{ $title }}</h2>
     @include('partials.alert')
     @include('partials.errors')
     <div class="form-group">

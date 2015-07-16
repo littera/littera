@@ -16,6 +16,7 @@
     "adminlte": "~2.1.2",
     "bootstrap": "~3.3.5",
     "fontawesome": "~4.3.0",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "metisMenu": "~2.0.2"
   }
 }

@@ -6,9 +6,8 @@
                 {{ $current_user->login }} <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Change account</a></li>
+                <li><a href="{{ route('littera.dashboard.getIndex') }}">Administrator</a></li>
                 <li class="divider"></li>
-                <li><a href="#">Change password</a></li>
                 <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
             </ul>
         </li>
