@@ -13,6 +13,14 @@ abstract class Controller extends BaseController
     use DispatchesJobs, ValidatesRequests;
 
     /**
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->viewShareSection();
+    }
+
+    /**
      * @param  array  $attr
      * @param  string  $tag
      * @return array
@@ -40,5 +48,13 @@ abstract class Controller extends BaseController
         }
 
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
+    }
+
+    /**
+     * @return void
+     */
+    protected function viewShareSection()
+    {
+        view()->share('section', property_exists($this, 'section') ? $this->section : '');
     }
 }

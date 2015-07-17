@@ -36,9 +36,17 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Littera', 'prefix' => 'lit
 {
     Route::get('/', [
         'as' => 'littera.dashboard.getIndex',
-        'permission' => 'admin_dashboard_access',
-        'uses' => 'DashboardController@getIndex'
+        'permission' => 'littera_dashboard_access',
+        'uses' => 'DashboardController@getIndex',
     ]);
+    Route::group(['prefix' => 'settings'], function()
+    {
+        Route::get('/', [
+            'as' => 'littera.settings.getIndex',
+            'permission' => 'littera_settings_access',
+            'uses' => 'SettingsController@getIndex',
+        ]);
+    });
 });
 
 Route::get('/', 'PagesController@getWelcome');

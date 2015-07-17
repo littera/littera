@@ -18,7 +18,6 @@ class AppServiceProvider extends ServiceProvider
             $this->app->register('Barryvdh\Debugbar\ServiceProvider');
         }
         view()->share('littera_version', config('littera.version'));
-
     }
 
     /**

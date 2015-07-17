@@ -111,6 +111,32 @@
   }
 }
 
+.panel {
+  &.panel-tabs {
+    .panel-heading {
+      margin-bottom: 10px;
+    }
+    .panel-body {
+      margin: 0;
+      padding: 0;
+
+      .nav-tabs {
+        > li:first-child {
+          padding-left: 15px;
+        }
+        > li {
+          > a {
+            border-radius: 3px 3px 0 0;
+          }
+        }
+      }
+      .tab-content {
+        padding: 25px;
+      }
+    }
+  }
+}
+
 .dropdown-menu {
   border-radius: 3px;
 }
