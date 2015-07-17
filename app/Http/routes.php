@@ -46,6 +46,11 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Littera', 'prefix' => 'lit
             'permission' => 'littera_settings_access',
             'uses' => 'SettingsController@getIndex',
         ]);
+        Route::post('general', [
+            'as' => 'littera.settings.postGeneral',
+            'permission' => 'littera_settings_update',
+            'uses' => 'SettingsController@postGeneral',
+        ]);
     });
 });
 
