@@ -30,7 +30,7 @@ trait Reset
     public function postEmail(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email'
+            'email' => 'required|email|max:254'
         ], [], [
             'email' => trans('auth/attributes.email'),
         ]);
@@ -96,7 +96,7 @@ trait Reset
 
         $this->validate($request, [
             'token' => 'required',
-            'email' => 'required|email',
+            'email' => 'required|email|max:254',
             'password' => 'required|confirmed|min:6',
         ], [], [
             'token' => trans('auth/attributes.token'),
