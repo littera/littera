@@ -12,6 +12,6 @@ final class DateTime
 
     private function __construct()
     {
-        throw new RuntimeException('Can\'t get an instance of Errors');
+        throw new RuntimeException('Can\'t get an instance.');
     }
 }
