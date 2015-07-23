@@ -15,7 +15,7 @@ class CreateUsersRemindersTable extends Migration
         Schema::create('users_reminders', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
-            $table->string('email')->index();
+            $table->string('email', 254)->index();
             $table->string('token')->index();
             $table->boolean('completed')->default(0);
             $table->timestamp('completed_at')->nullable();
