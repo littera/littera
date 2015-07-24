@@ -54,7 +54,7 @@
         <header class="page__header container-fluid clearfix">
             <nav class="pull-left">
                 <ul class="nav nav-pills">
-                    <li><a href="{{ url('/') }}" target="_blank" title="Preview"><i class="fa fa-desktop"></i></a></li>
+                    <li><a href="{{ url('/') }}" target="_blank" title="Preview"><i class="fa fa-desktop fa-btn"></i>{{ url('/') }}</a></li>
                 </ul>
             </nav>
             <nav class="pull-right">
