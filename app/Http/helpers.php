@@ -33,7 +33,7 @@ if ( ! function_exists('lh_date'))
      */
     function lh_date($date, $format = \App\Support\DateTime::INTERNATIONAL_FORMAT, $default = 'N/A')
     {
-        if ($date === null)
+        if ($date === null || $date === 0)
         {
             return $default;
         }
