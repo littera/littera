@@ -4,4 +4,5 @@ _ide_helper.php
 /node_modules
 composer.lock
 Homestead.yaml
+Homestead.json
 .env

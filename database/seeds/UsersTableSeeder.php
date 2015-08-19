@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
 
         User::create([
             'login' => 'admin',
-            'email' => 'mail@pektop.net',
+            'email' => 'mail@getlittera.com',
             'role_id' => 1,
             'password' => bcrypt('adminPassword'),
         ]);
