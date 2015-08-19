@@ -31,4 +31,3 @@ gulp
 ## License
 
 * The Littera is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT) by [Nikolay Denisenko](https://github.com/pektop)
-* The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT) by [Taylor Otwell](https://github.com/taylorotwell)
