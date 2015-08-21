@@ -22,6 +22,14 @@ class SettingsController extends Controller
                         'ses' => 'Amazon SES',
                         'log' => 'Log',
                     ],
+                    'encryption' => [
+                        'ssl' => 'SSL',
+                        'tls' => 'TLS',
+                    ],
+                    'pretend' => [
+                        1 => 'Enabled',
+                        0 => 'Disabled',
+                    ],
                 ],
             ],
         ]);

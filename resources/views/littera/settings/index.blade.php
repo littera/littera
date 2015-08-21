@@ -53,7 +53,61 @@
                 <div class="form-group">
                     <label for="driver" class="col-lg-3 control-label">Driver</label>
                     <div class="col-lg-9">
-                        {!! Form::select('driver', $settings['email']['drivers'], config('mail.driver'), ['id' => 'title', 'class' => 'form-control']) !!}
+                        {!! Form::select('mail_driver', $settings['email']['drivers'], config('mail.driver'), ['id' => 'mail_driver', 'class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="driver" class="col-lg-3 control-label">Host</label>
+                    <div class="col-lg-9">
+                        {!! Form::text('mail_host', config('mail.host'), ['id' => 'mail_host', 'class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="driver" class="col-lg-3 control-label">Port</label>
+                    <div class="col-lg-9">
+                        {!! Form::text('mail_port', config('mail.port'), ['id' => 'mail_port', 'class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="driver" class="col-lg-3 control-label">From address</label>
+                    <div class="col-lg-9">
+                        {!! Form::text('mail_from_address', config('mail.from.address'), ['id' => 'mail_from_address', 'class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="driver" class="col-lg-3 control-label">From name</label>
+                    <div class="col-lg-9">
+                        {!! Form::text('mail_from_name', config('mail.from.name'), ['id' => 'mail_from_name', 'class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="driver" class="col-lg-3 control-label">Encryption Protocol</label>
+                    <div class="col-lg-9">
+                        {!! Form::select('mail_encryption', $settings['email']['encryption'], config('mail.encryption'), ['id' => 'mail_encryption', 'class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="driver" class="col-lg-3 control-label">Server Username</label>
+                    <div class="col-lg-9">
+                        {!! Form::text('mail_username', config('mail.username'), ['id' => 'mail_username', 'class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="driver" class="col-lg-3 control-label">Server Password</label>
+                    <div class="col-lg-9">
+                        {!! Form::text('mail_password', config('mail.password'), ['id' => 'mail_password', 'class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="driver" class="col-lg-3 control-label">Sendmail Path</label>
+                    <div class="col-lg-9">
+                        {!! Form::text('mail_sendmail', config('mail.sendmail'), ['id' => 'mail_sendmail', 'class' => 'form-control']) !!}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="driver" class="col-lg-3 control-label">Mail "pretend"</label>
+                    <div class="col-lg-9">
+                        {!! Form::select('mail_pretend', $settings['email']['pretend'], (int) config('mail.pretend'), ['id' => 'mail_pretend', 'class' => 'form-control']) !!}
                     </div>
                 </div>
             </fieldset>
