@@ -18,11 +18,8 @@
             <li role="presentation" class="active">
                 <a href="#">General</a>
             </li>
-            <li role="presentation">
+            <li role="presentation" class="disabled">
                 <a href="#"><i class="fa fa-lock fa-btn"></i>Access</a>
-            </li>
-            <li role="presentation">
-                <a href="#"><i class="fa fa-file fa-btn"></i>Pages</a>
             </li>
         </ul>
         <div class="tab-content">
