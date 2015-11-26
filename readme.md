@@ -4,6 +4,8 @@
 [![Total Downloads](https://poser.pugx.org/littera/littera/d/total.svg)](https://packagist.org/packages/littera/littera)
 [![License](https://poser.pugx.org/littera/littera/license.svg)](https://packagist.org/packages/littera/littera)
 
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/0ff7519a-0c12-432b-b79b-8b91355d8a80/big.png)](https://insight.sensiolabs.com/projects/0ff7519a-0c12-432b-b79b-8b91355d8a80)
+
 Littera is a CMS based on Laravel 5.1
 
 ## Table of Content
