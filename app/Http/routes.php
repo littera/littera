@@ -48,6 +48,13 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Littera', 'prefix' => 'lit
             'uses' => 'SettingsController@postGeneral',
         ]);
     });
+    Route::group(['prefix' => 'users'], function () {
+        Route::get('/', [
+            'as' => 'littera.users.getIndex',
+            'permission' => 'littera_users_access',
+            'uses' => 'UsersController@getIndex',
+        ]);
+    });
 });
 
 Route::get('/', 'PagesController@getWelcome');
