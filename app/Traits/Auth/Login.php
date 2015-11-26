@@ -23,7 +23,8 @@ trait Login
     /**
      * Handle a login request to the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      *
      * @throws \Illuminate\Http\Exception\HttpResponseException
@@ -38,15 +39,13 @@ trait Login
             'password' => trans('auth/attributes.password'),
         ]);
 
-        if ($this->hasTooManyLoginAttempts($request))
-        {
+        if ($this->hasTooManyLoginAttempts($request)) {
             return $this->sendLockoutResponse($request);
         }
 
         $credentials = $this->getCredentials($request);
 
-        if (Auth::attempt($credentials, $request->has('remember')))
-        {
+        if (Auth::attempt($credentials, $request->has('remember'))) {
             $this->clearLoginAttempts($request);
 
             $this->updateLastLoginTimestamp();
@@ -66,14 +65,14 @@ trait Login
      * Get the needed authorization credentials from the request.
      *
      * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     protected function getCredentials(Request $request)
     {
         $credentials = $request->only('login', 'password');
 
-        if (filter_var($credentials['login'], FILTER_VALIDATE_EMAIL))
-        {
+        if (filter_var($credentials['login'], FILTER_VALIDATE_EMAIL)) {
             $credentials['email'] = $credentials['login'];
             unset($credentials['login']);
         }
@@ -83,13 +82,10 @@ trait Login
 
     /**
      * Update last login timestamp.
-     *
-     * @return void
      */
     protected function updateLastLoginTimestamp()
     {
-        if (Auth::check())
-        {
+        if (Auth::check()) {
             Auth::user()->last_login = lh_date(time(), DateTime::DB_TIMESTAMP);
             Auth::user()->save();
         }

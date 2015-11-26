@@ -17,14 +17,15 @@ trait Register
     public function getRegister()
     {
         return view('auth.register', [
-            'title' => trans('auth/views.register.title')
+            'title' => trans('auth/views.register.title'),
         ]);
     }
 
     /**
      * Handle a registration request for the application.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      *
      * @throws \Illuminate\Http\Exception\HttpResponseException
@@ -33,8 +34,7 @@ trait Register
     {
         $validator = $this->validator($request->all());
 
-        if ($validator->fails())
-        {
+        if ($validator->fails()) {
             $this->throwValidationException(
                 $request, $validator
             );

@@ -5,25 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
-use Validator;
 
 abstract class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    /**
-     * @return void
-     */
     public function __construct()
     {
         $this->viewShareSection();
     }
 
     /**
-     * @param  array  $attr
-     * @param  string  $tag
+     * @param array  $attr
+     * @param string $tag
+     *
      * @return array
      */
     protected function embed($attr, $tag = 'strong')
@@ -51,9 +47,6 @@ abstract class Controller extends BaseController
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/';
     }
 
-    /**
-     * @return void
-     */
     protected function viewShareSection()
     {
         view()->share('section', property_exists($this, 'section') ? $this->section : '');

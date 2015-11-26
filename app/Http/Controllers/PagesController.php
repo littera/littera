@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Support\DateTime;
 
 class PagesController extends Controller
 {
@@ -12,8 +13,7 @@ class PagesController extends Controller
     private $page;
 
     /**
-     * @param  Page $page
-     * @return void
+     * @param Page $page
      */
     public function __construct(Page $page)
     {
@@ -21,35 +21,29 @@ class PagesController extends Controller
     }
 
     /**
-     * @param  string $slug
+     * @param string $slug
+     *
      * @return \Illuminate\Http\Response
      */
     public function getPage($slug = null)
     {
-        if (null === $slug)
-        {
+        if (null === $slug) {
             $page = $this->page->where('slug', '/')->where('draft', 0)->first();
-        }
-        else
-        {
+        } else {
             $page = $this->page->where('slug', $slug)->where('draft', 0)->first();
         }
 
-        if (null === $page)
-        {
+        if (null === $page) {
             abort(404);
         }
 
-        if (null === $slug)
-        {
+        if (null === $slug) {
             return view('templates.home', [
-                'page' => $page
+                'page' => $page,
             ]);
-        }
-        else
-        {
+        } else {
             return view('templates.default', [
-                'page' => $page
+                'page' => $page,
             ]);
         }
     }
@@ -57,8 +51,7 @@ class PagesController extends Controller
     public function getWelcome()
     {
         return view('pages.welcome', [
-            'title' => 'Welcome to Littera'
+            'title' => 'Welcome to Littera',
         ]);
     }
-
 }

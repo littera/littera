@@ -10,7 +10,7 @@ class PasswordController extends Controller
     use Reset;
 
     /**
-     * Email subject
+     * Email subject.
      *
      * @var string
      */
@@ -46,8 +46,6 @@ class PasswordController extends Controller
 
     /**
      * Create a new password controller instance.
-     *
-     * @return void
      */
     public function __construct()
     {

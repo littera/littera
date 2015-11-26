@@ -11,8 +11,7 @@
 |
 */
 
-Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function()
-{
+Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function () {
     Route::get('login', 'AuthController@getLogin');
     Route::post('login', 'AuthController@postLogin');
     Route::get('logout', 'AuthController@getLogout');
@@ -23,8 +22,7 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'auth'], function()
     Route::get('activate/{token}', 'AuthController@getActivate');
 });
 
-Route::group(['namespace' => 'Auth', 'prefix' => 'password'], function()
-{
+Route::group(['namespace' => 'Auth', 'prefix' => 'password'], function () {
     Route::get('email', 'PasswordController@getEmail');
     Route::post('email', 'PasswordController@postEmail');
 
@@ -32,15 +30,13 @@ Route::group(['namespace' => 'Auth', 'prefix' => 'password'], function()
     Route::post('reset/{token}', 'PasswordController@postReset');
 });
 
-Route::group(['middleware' => 'auth', 'namespace' => 'Littera', 'prefix' => 'littera'], function()
-{
+Route::group(['middleware' => 'auth', 'namespace' => 'Littera', 'prefix' => 'littera'], function () {
     Route::get('/', [
         'as' => 'littera.dashboard.getIndex',
         'permission' => 'littera_dashboard_access',
         'uses' => 'DashboardController@getIndex',
     ]);
-    Route::group(['prefix' => 'settings'], function()
-    {
+    Route::group(['prefix' => 'settings'], function () {
         Route::get('/', [
             'as' => 'littera.settings.getIndex',
             'permission' => 'littera_settings_access',

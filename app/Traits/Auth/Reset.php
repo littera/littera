@@ -24,13 +24,14 @@ trait Reset
     /**
      * Send a reset link to the given user.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function postEmail(Request $request)
     {
         $this->validate($request, [
-            'email' => 'required|email|max:254'
+            'email' => 'required|email|max:254',
         ], [], [
             'email' => trans('auth/attributes.email'),
         ]);
@@ -66,7 +67,8 @@ trait Reset
     /**
      * Display the password reset view for the given token.
      *
-     * @param  string  $token
+     * @param string $token
+     *
      * @return \Illuminate\Http\Response
      */
     public function getReset($token = null)
@@ -84,8 +86,9 @@ trait Reset
     /**
      * Reset the given user's password.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  string  $token
+     * @param \Illuminate\Http\Request $request
+     * @param string                   $token
+     *
      * @return \Illuminate\Http\Response
      */
     public function postReset(Request $request, $token = null)
@@ -135,9 +138,8 @@ trait Reset
     /**
      * Reset the given user's password.
      *
-     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
-     * @param  string  $password
-     * @return void
+     * @param \Illuminate\Contracts\Auth\CanResetPassword $user
+     * @param string                                      $password
      */
     protected function resetPassword($user, $password)
     {
@@ -165,8 +167,7 @@ trait Reset
      */
     public function resetPath($token = null)
     {
-        if ($token === null)
-        {
+        if ($token === null) {
             return '/';
         }
 

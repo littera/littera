@@ -2,7 +2,7 @@
 
 namespace App\Support;
 
-use \RuntimeException;
+use RuntimeException;
 
 final class DateTime
 {

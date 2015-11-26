@@ -10,7 +10,8 @@ trait Throttle
     /**
      * Determine if the user has too many failed login attempts.
      *
-     * @param  Request  $request
+     * @param Request $request
+     *
      * @return bool
      */
     protected function hasTooManyLoginAttempts(Request $request)
@@ -20,7 +21,7 @@ trait Throttle
         $lockedOut = Cache::has($this->getLoginLockExpirationKey($request));
 
         if ($attempts > 5 || $lockedOut) {
-            if (! $lockedOut) {
+            if (!$lockedOut) {
                 Cache::put($this->getLoginLockExpirationKey($request), time() + 60, 1);
             }
 
@@ -33,7 +34,8 @@ trait Throttle
     /**
      * Get the login attempts for the user.
      *
-     * @param  Request  $request
+     * @param Request $request
+     *
      * @return int
      */
     protected function getLoginAttempts(Request $request)
@@ -44,7 +46,8 @@ trait Throttle
     /**
      * Increment the login attempts for the user.
      *
-     * @param  Request  $request
+     * @param Request $request
+     *
      * @return int
      */
     protected function incrementLoginAttempts(Request $request)
@@ -57,7 +60,8 @@ trait Throttle
     /**
      * Redirect the user after determining they are locked out.
      *
-     * @param  Request  $request
+     * @param Request $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     protected function sendLockoutResponse(Request $request)
@@ -72,8 +76,7 @@ trait Throttle
     /**
      * Clear the login locks for the given user credentials.
      *
-     * @param  Request  $request
-     * @return void
+     * @param Request $request
      */
     protected function clearLoginAttempts(Request $request)
     {
@@ -85,7 +88,8 @@ trait Throttle
     /**
      * Get the login attempts cache key.
      *
-     * @param  Request  $request
+     * @param Request $request
+     *
      * @return string
      */
     protected function getLoginAttemptsKey(Request $request)
@@ -98,7 +102,8 @@ trait Throttle
     /**
      * Get the login lock cache key.
      *
-     * @param  Request  $request
+     * @param Request $request
+     *
      * @return string
      */
     protected function getLoginLockExpirationKey(Request $request)
