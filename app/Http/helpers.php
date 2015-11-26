@@ -24,8 +24,6 @@ if ( ! function_exists('lh_choose'))
 if ( ! function_exists('lh_date'))
 {
     /**
-     * TODO: create a class including formats as constants, e.g. DateTime::MYSQL_TIMESTAMP
-     *
      * @param  string  $date
      * @param  string  $format
      * @param  string  $default

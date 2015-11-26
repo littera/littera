@@ -10,7 +10,7 @@ final class DateTime
     const INTERNATIONAL_FORMAT = 'd-m-Y H:i:s';
     const RUSSIAN_FORMAT = 'd.m.Y H:i:s';
 
-    private function __construct()
+    public function __construct()
     {
         throw new RuntimeException('Can\'t get an instance.');
     }
