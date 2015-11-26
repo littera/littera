@@ -54,6 +54,11 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Littera', 'prefix' => 'lit
             'permission' => 'littera_users_access',
             'uses' => 'UsersController@getIndex',
         ]);
+        Route::get('{id}', [
+            'as' => 'littera.users.getItem',
+            'permission' => 'littera_users_access',
+            'uses' => 'UsersController@getItem',
+        ]);
     });
 });
 

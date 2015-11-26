@@ -26,7 +26,7 @@
             <tbody>
             @foreach($users as $user)
                 <tr>
-                    <td>{{ $user->login }}</td>
+                    <td><a href="{{ route('littera.users.getItem', $user->id) }}">{{ $user->login }}</a></td>
                     <td>{{ $user->email }}</td>
                     <td>{{ lh_date($user->created_at) }}</td>
                     <td>{{ lh_date($user->updated_at) }}</td>
