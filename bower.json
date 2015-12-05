@@ -13,10 +13,10 @@
     "tests"
   ],
   "dependencies": {
-    "adminlte": "~2.2.0",
-    "bootstrap": "~3.3.5",
-    "fontawesome": "~4.4.0",
+    "adminlte": "~2.3.2",
+    "bootstrap": "~3.3.6",
+    "fontawesome": "~4.5.0",
     "jquery": "~2.1.4",
-    "metisMenu": "~2.0.3"
+    "metisMenu": "~2.2.0"
   }
 }
