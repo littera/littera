@@ -75,4 +75,3 @@ return Config::create()
     ->fixers($fixers)
     ->level(FixerInterface::NONE_LEVEL)
     ->setUsingCache(true);
-
