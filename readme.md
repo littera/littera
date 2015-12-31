@@ -1,5 +1,6 @@
 # Littera
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/littera/littera/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/littera/littera/?branch=master)
 [![Build Status](https://travis-ci.org/littera/littera.svg)](https://travis-ci.org/littera/littera)
 [![Total Downloads](https://poser.pugx.org/littera/littera/d/total.svg)](https://packagist.org/packages/littera/littera)
 [![License](https://poser.pugx.org/littera/littera/license.svg)](https://packagist.org/packages/littera/littera)
