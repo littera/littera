@@ -34,3 +34,4 @@ gulp
 ## License
 
 * The Littera is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT) by [Nikolay Denisenko](https://github.com/pektop)
+
